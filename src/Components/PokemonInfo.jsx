@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import PokemonType from "../PokemonType";
-import PokemonContext from "../PokemonContext";
+import { useSelector, useDispatch } from "react-redux";
 
 const PokemonInfo = () => {
-    const {state: {selectedPokemon}} = useContext(PokemonContext)
+    const dispatch = useDispatch();
+    const selectedPokemon = useSelector(state => state.selectedPokemon);
+
     return selectedPokemon ? (
         <div>
             <h2>{selectedPokemon.name.english}</h2>
